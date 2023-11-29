@@ -7,6 +7,8 @@ on:
       - main
       - 'release/**'
 
+  pull_request_target:
+    types: [merged]
   pull_request:
     types: [opened, synchronize]
   
