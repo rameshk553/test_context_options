@@ -21,4 +21,4 @@ jobs:
     steps:
       # Runs the Super-Linter action
       - name: print to console
-        run: echo ${{ github.event.pull_request.base.ref }}
+        run: echo ${{ github.event.base_ref }}
