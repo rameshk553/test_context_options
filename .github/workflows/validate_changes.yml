@@ -1,0 +1,23 @@
+---
+name: Validate Changes
+
+on:
+  push:
+    branches:
+      - main
+      - 'release/**'
+
+  pull_request:
+    types: [opened, synchronize]
+  
+concurrency: 
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  runs-on: ubuntu-latest
+  
+  steps:
+    # Runs the Super-Linter action
+    - name: print to console
+        run: echo ${{ github.event.pull_request.base.ref }}
