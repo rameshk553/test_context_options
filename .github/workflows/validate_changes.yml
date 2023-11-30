@@ -34,3 +34,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # Disable cpplint as it conflicts with clang-format
           VALIDATE_CPP: false
+
+      - name: print to console
+        if: ${{ github.base_ref || github.ref_name != github.event.repository.default_branch}}
+        run: echo "Not on main branch"
+          
