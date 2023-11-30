@@ -21,7 +21,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-          # Runs the Super-Linter action
+      - name: print to console
+        if: ${{ github.base_ref || github.ref_name != github.event.repository.default_branch}}
+        run: echo "Not on main branch"
+        
+      # Runs the Super-Linter action
       - name: Run Super-Linter
         if: ${{ github.base_ref || github.ref_name != github.event.repository.default_branch}}
         uses: super-linter/super-linter/slim@v5.6.1
@@ -35,7 +39,5 @@ jobs:
           # Disable cpplint as it conflicts with clang-format
           VALIDATE_CPP: false
 
-      - name: print to console
-        if: ${{ github.base_ref || github.ref_name != github.event.repository.default_branch}}
-        run: echo "Not on main branch"
+
           
