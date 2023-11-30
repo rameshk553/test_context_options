@@ -21,6 +21,5 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Runs the Super-Linter action
-      - name: print to console
-        run: echo "the value is ${{ github.base_ref }}"
+        - run: echo "event name is:" ${{ github.event_name }}
+        - run: echo "event type is:" ${{ github.event.action }} 
