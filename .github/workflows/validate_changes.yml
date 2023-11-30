@@ -23,9 +23,9 @@ jobs:
     steps:
         - run: |
             if [ "${{ github.event_name }}" == "push" ]; then
-              echo github.ref_name
+              echo ${{ github.ref_name }}
             else
-              echo github.base_ref
+              echo ${{ github.base_ref }}
             fi
         
       
